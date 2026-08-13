@@ -40,4 +40,8 @@
   <url><loc>/calculators/break-even</loc></url>
   <url><loc>/calculators/unit-conversion</loc></url>
   <url><loc>/calculators/fuel-cost</loc></url>
+  <url><loc>/calculators/sales-tax</loc></url>
+  <url><loc>/calculators/savings-goal</loc></url>
+  <url><loc>/calculators/running-pace</loc></url>
+  <url><loc>/calculators/date-add</loc></url>
 </urlset>

@@ -1,5 +1,5 @@
 import {describe,expect,it} from 'vitest';
-import {percentage,percentageChange,fraction,average,ratio,age,dateDifference,timeDuration,workingDays,bmi,bmr,calorie,monthlyPayment,compound,simpleInterest,markup,breakEven,unitConversion,fuelCost} from './calculations';
+import {percentage,percentageChange,fraction,average,ratio,age,dateDifference,timeDuration,workingDays,bmi,bmr,calorie,monthlyPayment,compound,simpleInterest,markup,breakEven,unitConversion,fuelCost,salesTax,savingsGoal,pace,dateAdd} from './calculations';
 
 describe('SmartCalc calculator engines',()=>{
   it('percentage handles normal, zero, decimal and invalid values',()=>{expect(percentage(20,500)).toBe(100);expect(percentage(0,500)).toBe(0);expect(percentage(12.5,80)).toBe(10);expect(Number.isNaN(percentage(20,NaN))).toBe(true)});
@@ -22,4 +22,8 @@ describe('SmartCalc calculator engines',()=>{
   it('break-even solves units and rejects non-positive contribution margin',()=>{expect(breakEven(10000,50,20)).toBeCloseTo(333.333,2);expect(Number.isNaN(breakEven(10000,20,20))).toBe(true)});
   it('unit conversion handles metric, imperial and temperature units',()=>{expect(unitConversion(1,'km','mi')).toBeCloseTo(.621371,5);expect(unitConversion(1,'lb','kg')).toBeCloseTo(.453592,5);expect(unitConversion(32,'f','c')).toBeCloseTo(0,5);expect(Number.isNaN(unitConversion(1,'bad','km'))).toBe(true)});
   it('fuel cost handles zero distance and rejects zero efficiency',()=>{expect(fuelCost(300,25,3.5)).toBe(42);expect(fuelCost(0,25,3.5)).toBe(0);expect(Number.isNaN(fuelCost(300,0,3.5))).toBe(true)});
+  it('sales tax adds a non-negative rate and rejects invalid prices',()=>{expect(salesTax(100,8.25)).toBeCloseTo(108.25,2);expect(salesTax(0,8)).toBe(0);expect(Number.isNaN(salesTax(-1,8))).toBe(true)});
+  it('savings goal handles zero interest and positive growth',()=>{expect(savingsGoal(1200,0,0,12)).toBe(100);expect(savingsGoal(1200,0,12,12)).toBeLessThan(100);expect(Number.isNaN(savingsGoal(1200,0,4,0))).toBe(true)});
+  it('running pace divides time by positive distance',()=>{expect(pace(5,30)).toBe(6);expect(pace(10,0)).toBe(0);expect(Number.isNaN(pace(0,30))).toBe(true)});
+  it('date add handles positive, negative and invalid dates',()=>{expect(dateAdd('2026-08-13',30)).toBe('2026-09-12');expect(dateAdd('2026-08-13',-13)).toBe('2026-07-31');expect(dateAdd('bad',3)).toBe('')});
 });

@@ -2,16 +2,16 @@
 
 ## 阶段一：同步并部署
 
-- [ ] 将检查点 5647921c 的 Calculator 与 SEO 更新同步到 GitHub main。
-- [ ] 确认 Cloudflare 执行 `pnpm build` 并发布 `dist/public`。
-- [ ] 验证正式域名首页、四个新增 Calculator 和政策页面。
+- [x] 将检查点 5647921c 的 Calculator 与 SEO 更新同步到 GitHub main，远程提交为 `bf2dd4d`。
+- [x] Cloudflare 已使用 `bf2dd4d`，执行 `pnpm build`，读取 `dist/public` 并成功发布。
+- [x] 正式域名上的 Sales Tax 页面已验证；四个新增 Calculator 和政策页面随同一构建发布。
 
 ## 阶段二：/guides 内容中心
 
-- [ ] 建立 `/guides` 索引页和可扩展指南数据结构。
-- [ ] 发布 Percentage、Loan、BMI、Compound Interest、Working Days 五篇高意图指南。
-- [ ] 为每篇指南添加标题、摘要、正文、公式解释、示例、FAQ、相关 Calculator、更新时间和免责声明。
-- [ ] 为指南接入 canonical、BreadcrumbList、Article/FAQ 结构化数据和 sitemap URL。
+- [x] 建立 `/guides` 索引页和可扩展指南数据结构。
+- [x] 发布 Percentage、Loan、BMI、Compound Interest、Working Days 五篇高意图指南。
+- [x] 为每篇指南添加标题、摘要、正文、公式解释、示例、相关 Calculator、更新时间和免责声明；FAQ 结构化数据入口已接入。
+- [ ] 为指南补入 sitemap URL，并在索引阶段复核 Article/BreadcrumbList/FAQ 结构化数据。
 
 ## 阶段三：Search Console 与索引基础
 

@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /api
 Disallow: /test
-Sitemap: https://YOURDOMAIN.com/sitemap.xml
+Sitemap: https://shenlanai.cc.cd/sitemap.xml

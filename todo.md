@@ -1,32 +1,49 @@
-# SmartCalc 后续合规与索引推进
+# SmartCalc GA4、CMP 与 AdSense 执行清单
 
-## 一、Search Console
+## 当前推进顺序
 
-- [ ] 核对正式 sitemap、robots、canonical 和 HTTPS。
-- [x] 用户已在 Search Console 添加并验证 `shenlanai.cc.cd` Domain property。
-- [x] 用户已在 Cloudflare DNS 添加 Google 提供的 TXT 验证记录并通过验证。
-- [x] 用户已提交完整 URL `https://shenlanai.cc.cd/sitemap.xml`；重点页面请求编入索引待后续进行。
+- [ ] 验证 Cloudflare 最新部署已包含 Google CMP 与 Consent Mode。
+- [ ] 用无痕窗口检查 CMP 的同意、拒绝和管理入口。
+- [ ] 检查 AdSense 网站状态和审核状态。
+- [ ] 只有获得最终 publisher 配置后才创建 ads.txt。
+- [ ] 审核通过后再开启真实广告位并做移动端误点击检查。
 
-## 二、Guides 结构化数据
+### 广告位规划（审核通过后执行）
 
-- [x] 五篇指南已补充 SmartCalc Editorial 作者、发布日期、更新时间和可见元信息。
-- [x] 五篇指南已生成 Article、BreadcrumbList 和每篇真实 FAQ 的 JSON-LD，并同步显示 FAQ 内容。
-- [x] 指南页面内容、相关 Calculator 内链、24 项测试、类型检查和生产构建已验证。
+- [ ] 为计算器详情页设计不遮挡核心操作的广告容器位置。
+- [ ] 移动端广告与输入框、计算按钮、结果卡片保持独立流布局。
+- [ ] 禁止覆盖式、底部悬浮式和紧贴操作按钮的广告。
+- [ ] 广告容器预留稳定高度，避免广告加载造成页面跳动。
+- [ ] 上线前验证 320px、375px、390px 和 430px 宽度的核心流程。
+- [ ] 通过 CMP 同意后才加载需要同意的广告请求，并保留清晰广告标签。
 
-## 三、Analytics
+## 第一阶段：GA4
 
-- [x] 已确认 GA4 服务和真实 Measurement ID `G-83V594TWDW`。
-- [ ] 在 Cloudflare Pages 环境变量中配置 `VITE_GA_MEASUREMENT_ID=G-83V594TWDW`，然后重新部署。
-- [ ] 部署后验证同意横幅、拒绝/允许行为和 GA4 实时数据；当前代码已默认不加载，只有用户主动允许后加载。
+- [ ] 将 Cloudflare Production 变量改为 `VITE_GA_MEASUREMENT_ID=G-YX4PT011V`。
+- [ ] 触发并确认最新 GitHub 提交 `fba8c34` 的 Cloudflare 部署。
+- [ ] 在正式域名点击 Allow analytics，确认 dataLayer 使用 `G-YX4PT011V`。
+- [ ] 在 GA4 Realtime 确认 SmartCalc 访问出现。
 
-## 四、AdSense/CMP
+## 第二阶段：CMP
 
-- [ ] 复核当前 AdSlot 是否关闭且无占位广告代码。
-- [ ] 选择 Google Privacy & Messaging 或 IAB TCF 认证 CMP。
-- [ ] 在获得 publisher ID 后再添加正式广告代码和 ads.txt。
-- [ ] 检查广告与 Calculator 操作区的距离、标签和移动端误点击风险。
+- [ ] 在 AdSense 的 Privacy & messaging 创建 European regulations 消息。
+- [ ] 关联网站 `shenlanai.cc.cd` 并发布 Google 提供的正式 CMP 配置。
+- [ ] 确认 CMP 的拒绝、同意、个性化广告说明和撤回入口。
 
-## 五、最终验证
+## 第三阶段：代码切换
 
-- [ ] 执行 check、test、build、结构化数据检查和线上路由验证。
-- [ ] 保存检查点并同步 GitHub/Cloudflare。
+- [ ] 移除 SmartCalc 临时 Analytics 同意横幅，避免与正式 CMP 重复。
+- [ ] 更新 Privacy/Cookie Policy 的 CMP 和 Google 数据披露。
+- [ ] 验证 GA4/Google 广告标签只按同意信号加载。
+
+## 第四阶段：AdSense
+
+- [ ] 在 AdSense 账号获批并取得 publisher ID 后启用广告。
+- [ ] 将 AdSlot 从关闭状态改为真实广告代码，并保留清晰广告标签。
+- [ ] 用准确 publisher ID 创建 `/ads.txt`，不猜测或伪造值。
+- [ ] 检查 Calculator 操作区距离、移动端布局和误点击风险。
+
+## 最终验证
+
+- [ ] 执行 check、test、build、线上同意测试、Realtime、CMP 和广告代码检查。
+- [ ] 保存检查点并交付最终操作结果。

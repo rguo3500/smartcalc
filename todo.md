@@ -8,6 +8,20 @@
 - [ ] 只有获得最终 publisher 配置后才创建 ads.txt。
 - [ ] 审核通过后再开启真实广告位并做移动端误点击检查。
 
+### 本轮 Web Vitals 与模块优化
+
+- [ ] 确认新版本已部署并检查 GA4 Web Vitals 事件是否进入 dataLayer。
+- [ ] 推进首页与计算器详情页非核心模块拆分，降低主入口体积。
+- [ ] 评估 Cloudflare Web Analytics/RUM，避免与 CMP 和 GA4 重复采集。
+- [ ] 复验隐私、移动端核心流程、广告预留区和 CLS。
+
+### 本轮部署与观测整改
+
+- [ ] 确认 Cloudflare 最新构建后背景图返回正确的 image/webp MIME 类型。
+- [ ] 推进首页与计算器详情页非核心模块拆分。
+- [ ] 接入或完善真实用户 Web Vitals 观测，并尊重现有 Consent Mode。
+- [ ] 复验移动端核心流程、试点广告安全区、CMP 和 CLS。
+
 ### 本轮上线后性能整改
 
 - [ ] 在正式域名重新运行移动 Lighthouse，确认最新部署已生效。

@@ -137,3 +137,11 @@ Google 官方政策明确禁止鼓励点击、误导性实现和可能被误认�
 [2]: https://blog.google/products/adsense/adsense-best-practice-set-yourself-up-for-success/ "Google AdSense best practice: Set yourself up for success"
 
 [3]: https://support.google.com/adsense/answer/48182?hl=en "Google AdSense Program policies"
+
+## 调试预览开关验证（2026-08-19）
+
+已新增 `/debug` 调试面板。开关默认关闭，开启后在本地存储 `smartcalc-ad-preview=true`，并通过自定义事件同步到页面广告壳。百分比页面验证显示 `Ad space reserved · preview only`，广告壳状态为 `preview`；页面没有 `ins.adsbygoogle`、Google Ads iframe 或 DoubleClick iframe。预览不会改变 `VITE_ADS_ENABLED`，也不会启用真实广告请求。调试页添加 `noindex,nofollow`，避免被搜索引擎收录。
+
+追加验证：调试面板开启后，贷款页面同样显示 `Ad space reserved · preview only`，状态为 `preview`，真实广告元素数量为 0；百分比页面验证结果相同。核心表单、结果卡片和 FAQ 仍保持正常文档流。
+
+BMI 页面验证完成：开启本地预览后显示 `Ad space reserved · preview only`，状态为 `preview`，真实广告元素数量为 0；输入框、Calculate、结果卡片和 FAQ 保持正常布局。
